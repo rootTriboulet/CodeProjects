@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>VGC 2025 Battle Helper (PokéAPI)</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="icon4.png">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>VGC 2025 Battle Helper</h1>
+
+      <div class="top-row">
+        <div class="team-top">
+          <h2>Your Active Team (4)</h2>
+          <div id="teamSlots" class="team-slots"></div>
+
+          <div class="team-controls">
+            <input id="slotInput" placeholder="Type Pokémon to put in selected slot" autocomplete="off"/>
+            <button id="putSlotBtn">Put in Slot</button>
+            <div id="slotSuggestions" class="suggestions"></div>
+          </div>
+
+          <div class="save-controls">
+            <input id="teamNameInput" placeholder="Team name to save (e.g. Shadow Dream)"/>
+            <button id="saveTeamBtn">Save Team</button>
+            <select id="savedTeamsSelect"><option value="">-- Saved teams --</option></select>
+            <button id="loadTeamBtn">Load</button>
+            <button id="deleteTeamBtn">Delete</button>
+          </div>
+        </div>
+
+        <div class="opponent-input">
+          <h2>Add Opponent</h2>
+          <input id="opponentPokemon" placeholder="Type opponent name (Enter to add)" autocomplete="off"/>
+          <button id="addOpponent">Add</button>
+          <ul id="suggestions" class="suggestions"></ul>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div id="columnsContainer" class="columns"></div>
+    </main>
+
+    <footer>
+      <small>Data: PokéAPI • GIFs: Pokémon Showdown (fallbacks) • Saved teams stored in your browser</small>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

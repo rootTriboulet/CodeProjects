@@ -1,0 +1,192 @@
+:root{
+  --bg:#000;
+  --panel:#111;
+  --muted:#ddd;
+  --card:#1b1b1b;
+  --accent:#444;
+  --accent-2:#666;
+  --danger:#800000;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter, "Segoe UI", system-ui, -apple-system, Roboto, Arial;
+  background:var(--bg);
+  color:var(--muted);
+  -webkit-font-smoothing:antialiased;
+}
+
+.container{
+  max-width:1400px;
+  margin:18px auto;
+  padding:18px;
+  background:var(--panel);
+  border-radius:12px;
+  box-shadow:0 8px 30px rgba(0,0,0,0.6);
+}
+
+h1{ margin:0 0 12px 0; text-align:center; color:#fff; font-size:22px }
+
+.top-row{ display:flex; gap:18px; align-items:flex-start; flex-wrap:wrap; justify-content:space-between }
+
+.team-top{ flex:1 1 760px; min-width:420px }
+.opponent-input{ width:360px; min-width:280px }
+
+.team-slots{ display:flex; gap:12px; margin-bottom:10px; }
+.slot{
+  background:#151515;
+  border:1px solid #2a2a2a;
+  border-radius:8px;
+  padding:8px;
+  width:150px;
+  text-align:center;
+  cursor:pointer;
+  transition:transform .08s;
+}
+.slot.selected{ outline:2px solid #666; transform:translateY(-3px) }
+.slot h4{ margin:6px 0 4px 0; font-size:14px }
+.slot img{ width:96px; height:96px; object-fit:contain; display:block; margin:0 auto 6px auto }
+
+.team-controls{ display:flex; gap:8px; align-items:center; margin-bottom:8px; }
+#slotInput{ padding:8px; width:360px; border-radius:8px; background:#222; border:1px solid #333; color:var(--muted) }
+#putSlotBtn{ padding:8px 10px; border-radius:8px; background:var(--accent); color:#fff; border:none; cursor:pointer }
+
+.save-controls{ display:flex; gap:8px; align-items:center; margin-top:8px; flex-wrap:wrap }
+#teamNameInput{ padding:8px; border-radius:8px; background:#222; border:1px solid #333; color:var(--muted) }
+#saveTeamBtn,#loadTeamBtn,#deleteTeamBtn{ padding:8px 10px; border-radius:8px; background:var(--accent); color:#fff; border:none; cursor:pointer }
+
+.opponent-input label{ display:block; font-size:13px; color:#ccc; margin-bottom:6px; }
+#opponentPokemon{ padding:8px; width:100%; border-radius:8px; background:#222; border:1px solid #333; color:var(--muted) }
+#addOpponent{ margin-top:6px; padding:8px 10px; border-radius:8px; background:var(--accent); color:#fff; border:none; cursor:pointer }
+
+.suggestions{ list-style:none; padding:6px; margin:6px 0 0 0; position:relative; background:#171717; border:1px solid #333; max-height:240px; overflow:auto; border-radius:6px }
+.suggestions li{ padding:8px 10px; cursor:pointer; color:var(--muted) }
+.suggestions li:hover{ background:#222 }
+
+main{ margin-top:22px }
+
+.columns{ display:flex; gap:18px; flex-wrap:wrap; align-items:flex-start }
+
+.column{
+  background:var(--card);
+  border-radius:10px;
+  border:1px solid #333;
+  padding:12px;
+  min-width:250px; /* smaller to fit 4 per row */
+  max-width:300px;
+  flex:1 1 23%;
+}
+
+.column h3{ margin:0 0 8px 0; text-align:center; color:#fff; font-size:18px }
+
+.pokemon-card{ display:flex; gap:12px; align-items:center; background:#151515; padding:10px; border-radius:8px; border:1px solid #2a2a2a; margin-bottom:8px }
+.pokemon-card img{ width:96px; height:96px; object-fit:contain }
+
+.pokemon-meta{ display:flex; flex-direction:column; gap:6px }
+.type-row{ display:flex; gap:6px; flex-wrap:wrap }
+.type-badge{ padding:3px 8px; border-radius:999px; font-weight:700; font-size:13px; color:white; display:inline-block }
+
+.type-normal{ background:#A8A77A }
+.type-fire{ background:#EE8130 }
+.type-water{ background:#6390F0 }
+.type-electric{ background:#F7D02C; color:#222 }
+.type-grass{ background:#7AC74C; color:#222 }
+.type-ice{ background:#96D9D6; color:#222 }
+.type-fighting{ background:#C22E28 }
+.type-poison{ background:#A33EA1 }
+.type-ground{ background:#E2BF65; color:#222 }
+.type-flying{ background:#A98FF3 }
+.type-psychic{ background:#F95587 }
+.type-bug{ background:#A6B91A; color:#222 }
+.type-rock{ background:#B6A136; color:#222 }
+.type-ghost{ background:#735797 }
+.type-dragon{ background:#6F35FC }
+.type-dark{ background:#705746 }
+.type-steel{ background:#B7B7CE; color:#222 }
+.type-fairy{ background:#D685AD }
+
+.column h4{ margin:10px 0 6px 0; color:#ddd; font-size:14px }
+.counter-card, .threat-card{
+  display:flex; gap:10px; align-items:center; padding:6px; background:#131313; border-radius:8px; border:1px solid #262626; margin-bottom:6px;
+}
+.counter-card img, .threat-card img{ width:64px; height:64px; object-fit:contain; border-radius:6px }
+
+.threat-visual{ display:flex; align-items:center; gap:8px }
+.arrow{ font-size:18px; color:#bbb }
+
+.remove-btn{ margin-top:10px; width:100%; padding:8px; background:var(--danger); border:none; color:#fff; border-radius:8px; cursor:pointer }
+
+footer{ margin-top:18px; text-align:center; color:#999; font-size:13px }
+
+.pokemon-types {
+  margin-top: 4px;
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.type {
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 12px;
+  color: #fff;
+  text-transform: capitalize;
+}
+
+.type.fire { background: #EE8130; }
+.type.water { background: #6390F0; }
+.type.grass { background: #7AC74C; }
+.type.electric { background: #F7D02C; color: #000; }
+.type.ice { background: #96D9D6; color: #000; }
+.type.fighting { background: #C22E28; }
+.type.poison { background: #A33EA1; }
+.type.ground { background: #E2BF65; color: #000; }
+.type.flying { background: #A98FF3; }
+.type.psychic { background: #F95587; }
+.type.bug { background: #A6B91A; }
+.type.rock { background: #B6A136; }
+.type.ghost { background: #735797; }
+.type.dragon { background: #6F35FC; }
+.type.dark { background: #705746; }
+.type.steel { background: #B7B7CE; color: #000; }
+.type.fairy { background: #D685AD; }
+.type.normal { background: #A8A77A; color: #000; }
+
+.type-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.type-badge {
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  text-transform: capitalize;
+}
+
+/* add these if not already present */
+.type-normal { background: #A8A77A; color: #000; }
+.type-fire { background: #EE8130; }
+.type-water { background: #6390F0; }
+.type-electric { background: #F7D02C; color: #000; }
+.type-grass { background: #7AC74C; }
+.type-ice { background: #96D9D6; color: #000; }
+.type-fighting { background: #C22E28; }
+.type-poison { background: #A33EA1; }
+.type-ground { background: #E2BF65; color: #000; }
+.type-flying { background: #A98FF3; }
+.type-psychic { background: #F95587; }
+.type-bug { background: #A6B91A; }
+.type-rock { background: #B6A136; color: #000; }
+.type-ghost { background: #735797; }
+.type-dragon { background: #6F35FC; }
+.type-dark { background: #705746; }
+.type-steel { background: #B7B7CE; color: #000; }
+.type-fairy { background: #D685AD; }
